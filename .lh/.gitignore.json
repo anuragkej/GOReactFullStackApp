@@ -1,0 +1,22 @@
+{
+    "sourceFile": ".gitignore",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1717641163721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717641181551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n \n # Compiled binary files\n *.exe\n *.out\n+*main\n \n # macOS specific files\n .DS_Store\n \n"
+                }
+            ],
+            "date": 1717641163720,
+            "name": "Commit-0",
+            "content": "\n.env\nnode_modules\n\n# Compiled Object files, Static and Dynamic libs (Shared Objects)\n*.o\n*.a\n*.so\n\n# Folders\n_obj\n_test\nvendor/\n\n# logs\n*.log\n\n# Compiled binary files\n*.exe\n*.out\n\n# macOS specific files\n.DS_Store\n\n# Go specific files\n# Compiled binary for packages and commands\n/bin/\n# Output of the go coverage tool, specifically when used with LiteIDE\n*.out\n\n# Dependency directories (remove the comment below if you are using dep)"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "air.toml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1717629936001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717641228310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,9 @@\n-root = \".\"      # The root directory of the project\n+root = \".\" # The root directory of the project\n tmp_dir = \"tmp\" # The temporary directory where air will store its temporary files\n \n [build] # The build configuration\n-bin = \"main\" # The name of the binary file to be generated after building the project\n-cmd = \"go build -o {{.Output}} {{.Input}}\" # The command to build the project\n-exclude = [\n-  \"tmp/*\",\n-  \"client/*\",\n-] # Specifies the directories to be excluded from monitoring for changes\n-include = [\n-  \"**/*.go\",\n-] # Specifies the file patterns to be included for monitoring.\n-ignore = [\n-  \"tmp/*\",\n-] # Specifies the files or directories to be ignored when triggering a build.\n+  bin = \"main\" # The name of the binary file to be generated after building the project\n+  cmd = \"go build -o {{.Output}} {{.Input}}\" # The command to build the project\n+  exclude = [\"tmp/*\", \"client/*\"]  # Specifies the directories to be excluded from monitoring for changes\n+  include = [\"**/*.go\"] # Specifies the file patterns to be included for monitoring.\n+  ignore = [\"tmp/*\"] # Specifies the files or directories to be ignored when triggering a build.\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1717629936001,
+            "name": "Commit-0",
+            "content": "root = \".\" # The root directory of the project\ntmp_dir = \"tmp\" # The temporary directory where air will store its temporary files\n\n[build] # The build configuration\n  bin = \"main\" # The name of the binary file to be generated after building the project\n  cmd = \"go build -o {{.Output}} {{.Input}}\" # The command to build the project\n  exclude = [\"tmp/*\", \"client/*\"]  # Specifies the directories to be excluded from monitoring for changes\n  include = [\"**/*.go\"] # Specifies the file patterns to be included for monitoring.\n  ignore = [\"tmp/*\"] # Specifies the files or directories to be ignored when triggering a build."
+        }
+    ]
+}
