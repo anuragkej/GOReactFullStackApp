@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 20,
+            "activePatchIndex": 23,
             "patches": [
                 {
                     "date": 1717601365986,
@@ -88,6 +88,18 @@
                 {
                     "date": 1717640945827,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n \t\"log\"\n \t\"os\"\n \n \t\"github.com/gofiber/fiber/v2\"\n+\t\"github.com/joho/godotenv\"\n )\n \n type Todo struct {\n \tID        int    `json:\"id\"`\n@@ -19,9 +20,9 @@\n \tfmt.Println(\"Hello World\")\n \tapp := fiber.New()\n \n \terr := godotenv.Load(\".env\")\n-\tif err != nil{\n+\tif err != nil {\n \t\tlog.Fatal(\"Error loading .env file\")\n \t}\n \n \tPORT := os.Getenv(\"PORT\")\n"
+                },
+                {
+                    "date": 1717776167332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,84 +1,13 @@\n package main\n \n-import (\n-\t\"fmt\"\n-\t\"log\"\n-\t\"os\"\n+import \"fmt\"\n \n-\t\"github.com/gofiber/fiber/v2\"\n-\t\"github.com/joho/godotenv\"\n-)\n-\n type Todo struct {\n \tID        int    `json:\"id\"`\n \tCompleted bool   `json:\"completed\"`\n \tBody      string `json:\"body\"`\n }\n \n-func main() {\n-\t//boilerplate setup\n+func main(){\n \tfmt.Println(\"Hello World\")\n-\tapp := fiber.New()\n-\n-\terr := godotenv.Load(\".env\")\n-\tif err != nil {\n-\t\tlog.Fatal(\"Error loading .env file\")\n-\t}\n-\n-\tPORT := os.Getenv(\"PORT\")\n-\n-\ttodos := []Todo{}\n-\n-\tapp.Get(\"/api/todos\", func(c *fiber.Ctx) error {\n-\t\treturn c.Status(200).JSON(todos)\n-\t})\n-\n-\t//create a Todo\n-\tapp.Post(\"/api/todos\", func(c *fiber.Ctx) error {\n-\t\ttodo := &Todo{} //default values: {id: 0, completed: False, body: \"\"}\n-\n-\t\tif err := c.BodyParser(todo); err != nil {\n-\t\t\treturn err\n-\t\t}\n-\n-\t\tif todo.Body == \"\" {\n-\t\t\treturn c.Status(400).JSON(fiber.Map{\"error\": \"Todo body is required\"})\n-\t\t}\n-\n-\t\ttodo.ID = len(todos) + 1\n-\t\ttodos = append(todos, *todo)\n-\n-\t\treturn c.Status(201).JSON(todo)\n-\t})\n-\n-\t//update a todo\n-\tapp.Patch(\"/api/todos/:id\", func(c *fiber.Ctx) error {\n-\t\tid := c.Params(\"id\")\n-\n-\t\tfor i, todo := range todos {\n-\t\t\tif fmt.Sprint(todo.ID) == id {\n-\t\t\t\ttodos[i].Completed = true\n-\t\t\t\treturn c.Status(200).JSON(todos[i])\n-\t\t\t}\n-\t\t}\n-\t\treturn c.Status(404).JSON(fiber.Map{\"error\": \"Todo not found\"})\n-\t})\n-\n-\t//delete a todo endpoint\n-\n-\tapp.Delete(\"/api/todos/:id\", func(c *fiber.Ctx) error {\n-\t\tid := c.Params(\"id\")\n-\n-\t\tfor i, todo := range todos {\n-\t\t\tif fmt.Sprint(todo.ID) == id {\n-\t\t\t\t// 1 2 3 4 5 (delete 3 by indexing first 2 and last 2) -> 1 2 4 5\n-\t\t\t\ttodos = append(todos[:i], todos[i+1:]...)\n-\t\t\t\treturn c.Status(200).JSON(fiber.Map{\"success\": true})\n-\t\t\t}\n-\t\t}\n-\t\treturn c.Status(404).JSON(fiber.Map{\"error\": \"Todo not found\"})\n-\t})\n-\n-\t//listening on Port\n-\tlog.Fatal(app.Listen(\":\" + PORT))\n-}\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1717776475072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,44 @@\n package main\n \n-import \"fmt\"\n+import (\n+\t\"context\"\n+\t\"fmt\"\n+\t\"log\"\n+\t\"os\"\n \n+\t\"github.com/joho/godotenv\"\n+\t\"go.mongodb.org/mongo-driver/mongo\"\n+\t\"go.mongodb.org/mongo-driver/mongo/options\"\n+)\n+\n type Todo struct {\n-\tID        int    `json:\"id\"`\n+\tID        int    `json:\"_id\" bson:\"_id\"`\n \tCompleted bool   `json:\"completed\"`\n \tBody      string `json:\"body\"`\n }\n \n+var collection *mongo.Collection\n+\n func main() {\n \tfmt.Println(\"Hello World\")\n+\n+\terr := godotenv.Load(\".env\")\n+\tif err != nil{\n+\t\tlog.Fatal(\"Error loading .env file:\",err)\n+\t}\n+\n+\tMONGODB_URI := os.Getenv((\"MONGODB_URI\"))\n+\tclientOptions := options.Client().ApplyURI(MONGODB_URI)\n+\tclient,err := mongo.Connect(context.Background(),clientOptions)\n+\n+\tif err != nil{\n+\t\tlog.Fatal(err)\n+\t}\n+\n+\terr = client.Ping(context.Background(), nil)\n+\tif err != nil{\n+\t\tlog.Fatal(err)\n+\t}\n+\n+\tfmt.Println(\"Connected to MONGODB ATLAS\")\n }\n"
+                },
+                {
+                    "date": 1717776634792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,9 @@\n \t\"fmt\"\n \t\"log\"\n \t\"os\"\n \n+\t\"github.com/gofiber/fiber/v2\"\n \t\"github.com/joho/godotenv\"\n \t\"go.mongodb.org/mongo-driver/mongo\"\n \t\"go.mongodb.org/mongo-driver/mongo/options\"\n )\n@@ -40,5 +41,14 @@\n \t\tlog.Fatal(err)\n \t}\n \n \tfmt.Println(\"Connected to MONGODB ATLAS\")\n+\n+\tcollection = client.Database(\"golang_db\").Collection(\"todos\")\n+\n+\tapp := fiber.New()\n+\n+\tapp.Get(\"/api/todos\", getTodos)\n+\tapp.Post(\"/api/todos\", createTodo)\n+\tapp.Patch(\"/api/todos/:id\", updateTodo)\n+\tapp.Delete(\"/api/todos/:id\", deleteTodo)\n }\n"
                 }
             ],
             "date": 1717601365986,
