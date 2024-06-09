@@ -1,0 +1,1 @@
+A Full-Stack CRUD API ToDo List powered by GO, React, Typescript, ChakraUI, Tanstack Query, & MongoDB. Automatically updates and categorizes todo items and allows for seamless additions to existing items.
