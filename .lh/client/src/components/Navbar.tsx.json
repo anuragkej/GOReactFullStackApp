@@ -1,0 +1,38 @@
+{
+    "sourceFile": "client/src/components/Navbar.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1717910905412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717911023657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,11 +28,12 @@\n             alignItems={\"center\"}\n             gap={3}\n             display={{ base: \"none\", sm: \"flex\" }}\n           >\n+            <Text fontSize={\"40\"}>Todo List w/</Text>\n             <img src=\"/react.png\" alt=\"logo\" width={50} height={50} />\n-            <Text fontSize={\"40\"}>+</Text>\n-            <img src=\"/go.png\" alt=\"logo\" width={40} height={40} />\n+            {/* <Text fontSize={\"40\"}>+</Text> */}\n+            <img src=\"/golang.png\" alt=\"logo\" width={40} height={40} />\n             <Text fontSize={\"40\"}>=</Text>\n             <img src=\"/explode.png\" alt=\"logo\" width={50} height={50} />\n           </Flex>\n \n"
+                },
+                {
+                    "date": 1717911030999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n             display={{ base: \"none\", sm: \"flex\" }}\n           >\n             <Text fontSize={\"40\"}>Todo List w/</Text>\n             <img src=\"/react.png\" alt=\"logo\" width={50} height={50} />\n-            {/* <Text fontSize={\"40\"}>+</Text> */}\n+            <Text fontSize={\"40\"}>+</Text>\n             <img src=\"/golang.png\" alt=\"logo\" width={40} height={40} />\n             <Text fontSize={\"40\"}>=</Text>\n             <img src=\"/explode.png\" alt=\"logo\" width={50} height={50} />\n           </Flex>\n"
+                },
+                {
+                    "date": 1717911047606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n           >\n             <Text fontSize={\"40\"}>Todo List w/</Text>\n             <img src=\"/react.png\" alt=\"logo\" width={50} height={50} />\n             <Text fontSize={\"40\"}>+</Text>\n-            <img src=\"/golang.png\" alt=\"logo\" width={40} height={40} />\n+            <img src=\"/go.png\" alt=\"logo\" width={40} height={40} />\n             <Text fontSize={\"40\"}>=</Text>\n             <img src=\"/explode.png\" alt=\"logo\" width={50} height={50} />\n           </Flex>\n \n"
+                },
+                {
+                    "date": 1717911054027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,10 +32,10 @@\n             <Text fontSize={\"40\"}>Todo List w/</Text>\n             <img src=\"/react.png\" alt=\"logo\" width={50} height={50} />\n             <Text fontSize={\"40\"}>+</Text>\n             <img src=\"/go.png\" alt=\"logo\" width={40} height={40} />\n-            <Text fontSize={\"40\"}>=</Text>\n-            <img src=\"/explode.png\" alt=\"logo\" width={50} height={50} />\n+            {/* <Text fontSize={\"40\"}>=</Text>\n+            <img src=\"/explode.png\" alt=\"logo\" width={50} height={50} /> */}\n           </Flex>\n \n           {/* RIGHT SIDE */}\n           <Flex alignItems={\"center\"} gap={3}>\n"
+                },
+                {
+                    "date": 1717911067697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,14 +28,13 @@\n             alignItems={\"center\"}\n             gap={3}\n             display={{ base: \"none\", sm: \"flex\" }}\n           >\n-            <Text fontSize={\"40\"}>Todo List w/</Text>\n             <img src=\"/react.png\" alt=\"logo\" width={50} height={50} />\n             <Text fontSize={\"40\"}>+</Text>\n             <img src=\"/go.png\" alt=\"logo\" width={40} height={40} />\n-            {/* <Text fontSize={\"40\"}>=</Text>\n-            <img src=\"/explode.png\" alt=\"logo\" width={50} height={50} /> */}\n+            <Text fontSize={\"40\"}>=</Text>\n+            <img src=\"/explode.png\" alt=\"logo\" width={50} height={50} />\n           </Flex>\n \n           {/* RIGHT SIDE */}\n           <Flex alignItems={\"center\"} gap={3}>\n"
+                }
+            ],
+            "date": 1717910905412,
+            "name": "Commit-0",
+            "content": "import {\n  Box,\n  Flex,\n  Button,\n  useColorModeValue,\n  useColorMode,\n  Text,\n  Container,\n} from \"@chakra-ui/react\";\nimport { IoMoon } from \"react-icons/io5\";\nimport { LuSun } from \"react-icons/lu\";\n\nexport default function Navbar() {\n  const { colorMode, toggleColorMode } = useColorMode();\n\n  return (\n    <Container maxW={\"900px\"}>\n      <Box\n        bg={useColorModeValue(\"gray.400\", \"gray.700\")}\n        px={4}\n        my={4}\n        borderRadius={\"5\"}\n      >\n        <Flex h={16} alignItems={\"center\"} justifyContent={\"space-between\"}>\n          {/* LEFT SIDE */}\n          <Flex\n            justifyContent={\"center\"}\n            alignItems={\"center\"}\n            gap={3}\n            display={{ base: \"none\", sm: \"flex\" }}\n          >\n            <img src=\"/react.png\" alt=\"logo\" width={50} height={50} />\n            <Text fontSize={\"40\"}>+</Text>\n            <img src=\"/go.png\" alt=\"logo\" width={40} height={40} />\n            <Text fontSize={\"40\"}>=</Text>\n            <img src=\"/explode.png\" alt=\"logo\" width={50} height={50} />\n          </Flex>\n\n          {/* RIGHT SIDE */}\n          <Flex alignItems={\"center\"} gap={3}>\n            <Text fontSize={\"lg\"} fontWeight={500}>\n              Daily Tasks\n            </Text>\n            {/* Toggle Color Mode */}\n            <Button onClick={toggleColorMode}>\n              {colorMode === \"light\" ? <IoMoon /> : <LuSun size={20} />}\n            </Button>\n          </Flex>\n        </Flex>\n      </Box>\n    </Container>\n  );\n}\n"
+        }
+    ]
+}

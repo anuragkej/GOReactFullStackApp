@@ -1,0 +1,66 @@
+{
+    "sourceFile": "client/src/App.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1717910540520,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717910563671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,5 @@\n-import { useState } from \"react\";\n-import reactLogo from \"./assets/react.svg\";\n-import viteLogo from \"/vite.svg\";\n-import \"./App.css\";\n+import { Button } from \"@chakra-ui/react\";\n \n function App() {\n   const [count, setCount] = useState(0);\n \n"
+                },
+                {
+                    "date": 1717910749678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,15 @@\n import { Button } from \"@chakra-ui/react\";\n \n function App() {\n-  const [count, setCount] = useState(0);\n-\n   return (\n-    <>\n-      <Button>Hello</Button>\n-    </>\n+    <Stack h=\"100vh\">\n+      <Navbar />\n+      <Container>\n+        <TodoForm />\n+        <TodoList />\n+      </Container>\n+    </Stack>\n   );\n }\n \n export default App;\n"
+                },
+                {
+                    "date": 1717910848398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,15 @@\n+import { Button } from \"@chakra-ui/react\";\n+\n+function App() {\n+  return (\n+    <Stack h=\"100vh\">\n+      <Navbar />\n+      <Container>\n+        <TodoForm />\n+        <TodoList />\n+      </Container>\n+    </Stack>\n+  );\n+}\n+\n+export default App;\n"
+                },
+                {
+                    "date": 1717910864156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { Button } from \"@chakra-ui/react\";\n+import { Container, Stack } from \"@chakra-ui/react\";\n \n function App() {\n   return (\n     <Stack h=\"100vh\">\n@@ -12,19 +12,4 @@\n   );\n }\n \n export default App;\n-import { Button } from \"@chakra-ui/react\";\n-\n-function App() {\n-  return (\n-    <Stack h=\"100vh\">\n-      <Navbar />\n-      <Container>\n-        <TodoForm />\n-        <TodoList />\n-      </Container>\n-    </Stack>\n-  );\n-}\n-\n-export default App;\n"
+                },
+                {
+                    "date": 1717910871209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,10 +4,10 @@\n   return (\n     <Stack h=\"100vh\">\n       <Navbar />\n       <Container>\n-        <TodoForm />\n-        <TodoList />\n+        {/* <TodoForm />\n+        <TodoList /> */}\n       </Container>\n     </Stack>\n   );\n }\n"
+                },
+                {
+                    "date": 1717910974888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { Container, Stack } from \"@chakra-ui/react\";\n+import Navbar from \"./components/Navbar\";\n \n function App() {\n   return (\n     <Stack h=\"100vh\">\n"
+                },
+                {
+                    "date": 1717912329179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,10 @@\n   return (\n     <Stack h=\"100vh\">\n       <Navbar />\n       <Container>\n-        {/* <TodoForm />\n-        <TodoList /> */}\n+        <TodoForm />\n+        {/* <TodoList /> */}\n       </Container>\n     </Stack>\n   );\n }\n"
+                },
+                {
+                    "date": 1717912342434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { Container, Stack } from \"@chakra-ui/react\";\n import Navbar from \"./components/Navbar\";\n+import TodoForm from \"./components/TodoForm\";\n \n function App() {\n   return (\n     <Stack h=\"100vh\">\n"
+                },
+                {
+                    "date": 1717912505158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n import { Container, Stack } from \"@chakra-ui/react\";\n import Navbar from \"./components/Navbar\";\n import TodoForm from \"./components/TodoForm\";\n+import TodoList from \"./components/TodoList\";\n \n function App() {\n   return (\n     <Stack h=\"100vh\">\n       <Navbar />\n       <Container>\n         <TodoForm />\n-        {/* <TodoList /> */}\n+        <TodoList />\n       </Container>\n     </Stack>\n   );\n }\n"
+                },
+                {
+                    "date": 1717963986648,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import Navbar from \"./components/Navbar\";\n import TodoForm from \"./components/TodoForm\";\n import TodoList from \"./components/TodoList\";\n \n+export const BASE_URL = \"http://localhost:4002/api\";\n function App() {\n   return (\n     <Stack h=\"100vh\">\n       <Navbar />\n"
+                },
+                {
+                    "date": 1717968949645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,11 @@\n import Navbar from \"./components/Navbar\";\n import TodoForm from \"./components/TodoForm\";\n import TodoList from \"./components/TodoList\";\n \n-export const BASE_URL = \"http://localhost:4002/api\";\n+export const BASE_URL = import.meta.env.MODE === \"development\" ? \"http://localhost:4002/api\"; : \"/api\"\n+\n+\n function App() {\n   return (\n     <Stack h=\"100vh\">\n       <Navbar />\n"
+                },
+                {
+                    "date": 1717968968898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n import Navbar from \"./components/Navbar\";\n import TodoForm from \"./components/TodoForm\";\n import TodoList from \"./components/TodoList\";\n \n-export const BASE_URL = import.meta.env.MODE === \"development\" ? \"http://localhost:4002/api\"; : \"/api\"\n+export const BASE_URL =\n+  import.meta.env.MODE === \"development\" ? \"http://localhost:4002/api\" : \"/api\";\n \n-\n function App() {\n   return (\n     <Stack h=\"100vh\">\n       <Navbar />\n"
+                }
+            ],
+            "date": 1717910540520,
+            "name": "Commit-0",
+            "content": "import { useState } from \"react\";\nimport reactLogo from \"./assets/react.svg\";\nimport viteLogo from \"/vite.svg\";\nimport \"./App.css\";\n\nfunction App() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <>\n      <Button>Hello</Button>\n    </>\n  );\n}\n\nexport default App;\n"
+        }
+    ]
+}

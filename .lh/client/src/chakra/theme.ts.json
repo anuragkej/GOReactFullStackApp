@@ -1,0 +1,30 @@
+{
+    "sourceFile": "client/src/chakra/theme.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1717968394671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1717968488192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   config,\n   styles: {\n     global: (props: any) => ({\n       body: {\n-        backgroundColor: mode(\"gray.500\", \"\")(props),\n+        backgroundColor: mode(\"gray.300\", \"\")(props),\n       },\n     }),\n   },\n });\n"
+                },
+                {
+                    "date": 1717968499875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n   config,\n   styles: {\n     global: (props: any) => ({\n       body: {\n-        backgroundColor: mode(\"gray.700\", \"\")(props),\n+        backgroundColor: mode(\"gray.400\", \"\")(props),\n       },\n     }),\n   },\n });\n"
+                },
+                {
+                    "date": 1717968680712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,21 @@\n+import { extendTheme, type ThemeConfig } from \"@chakra-ui/react\";\n+import { mode } from \"@chakra-ui/theme-tools\";\n+\n+const config: ThemeConfig = {\n+  initialColorMode: \"dark\",\n+  useSystemColorMode: true,\n+};\n+\n+// 3. extend the theme\n+const theme = extendTheme({\n+  config,\n+  styles: {\n+    global: (props: any) => ({\n+      body: {\n+        backgroundColor: mode(\"red.50\", \"\")(props),\n+      },\n+    }),\n+  },\n+});\n+\n+export default theme;\n"
+                }
+            ],
+            "date": 1717968394671,
+            "name": "Commit-0",
+            "content": "import { extendTheme, type ThemeConfig } from \"@chakra-ui/react\";\nimport { mode } from \"@chakra-ui/theme-tools\";\n\nconst config: ThemeConfig = {\n  initialColorMode: \"dark\",\n  useSystemColorMode: true,\n};\n\n// 3. extend the theme\nconst theme = extendTheme({\n  config,\n  styles: {\n    global: (props: any) => ({\n      body: {\n        backgroundColor: mode(\"gray.500\", \"\")(props),\n      },\n    }),\n  },\n});\n\nexport default theme;\n"
+        }
+    ]
+}
