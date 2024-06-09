@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1717969395680,
@@ -12,6 +12,14 @@
                 {
                     "date": 1717969817186,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <!DOCTYPE html>\n <html lang=\"en\">\n   <head>\n     <meta charset=\"UTF-8\" />\n-    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/golang.png\" />\n+    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/todolist.png\" />\n     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n     <title>GO + React + TS</title>\n   </head>\n   <body>\n"
+                },
+                {
+                    "date": 1717970288847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+<!DOCTYPE html>\n+<html lang=\"en\">\n+  <head>\n+    <meta charset=\"UTF-8\" />\n+    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/todolist.png\" />\n+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n+    <title>GO + React + TS</title>\n+  </head>\n+  <body>\n+    <div id=\"root\"></div>\n+    <script type=\"module\" src=\"/src/main.tsx\"></script>\n+  </body>\n+</html>\n"
+                },
+                {
+                    "date": 1717970297298,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,17 +10,4 @@\n     <div id=\"root\"></div>\n     <script type=\"module\" src=\"/src/main.tsx\"></script>\n   </body>\n </html>\n-<!DOCTYPE html>\n-<html lang=\"en\">\n-  <head>\n-    <meta charset=\"UTF-8\" />\n-    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/todolist.png\" />\n-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n-    <title>GO + React + TS</title>\n-  </head>\n-  <body>\n-    <div id=\"root\"></div>\n-    <script type=\"module\" src=\"/src/main.tsx\"></script>\n-  </body>\n-</html>\n"
                 }
             ],
             "date": 1717969395680,
